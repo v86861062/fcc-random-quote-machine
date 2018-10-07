@@ -1,0 +1,89 @@
+{
+    "quotes": [
+      {
+        "quote": "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+        "quote_zh_tw": "傻瓜都能寫出電腦能理解的程式。優秀的工程師寫出的是人類能讀懂的程式。",
+        "author": "Martin Fowler"
+      },
+      {
+        "quote": "An infinite number of monkeys typing into GNU emacs would never make a good program.",
+        "quote_zh_tw": "讓無限多的猴子在 GNU Emacs 上打字也不會產生一個好的程式。",
+        "author": "Linus Torvalds"
+      },
+      {
+        "quote": "If you need more than 3 levels of indentation, you're screwed anyway, and should fix your program.",
+        "quote_zh_tw": "如果你的程式裡需要有超過三層的縮進，那麼你已經搞砸了，應該修改你的程式。",
+        "author": "Linus Torvalds"
+      },
+      {
+        "quote": "A good programmer is someone who always looks both ways before crossing a one-way street.",
+        "quote_zh_tw": "一個好的工程師是那種過單行道馬路都要左顧右盼的人。",
+        "author": "Doug Linder"
+      },
+      {
+        "quote": "The three chief virtues of a programmer are: Laziness, Impatience and Hubris.",
+        "quote_zh_tw": "工程師會具有的美德：懶惰、暴躁、傲慢。",
+        "author": "Larry Wall"
+      },
+      {
+        "quote": "Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.",
+        "quote_zh_tw": "寫程式時要保持這種心態：就好像將來要維護你這些程式的人是一位殘暴的精神病患者，而且他知道你住在哪。",
+        "author": "John F. Woods"
+      },
+      {
+        "quote": "One man's crappy software is another man's full time job.",
+        "quote_zh_tw": "一個人寫的爛軟體將會給另一個人帶來一份全職工作。",
+        "author": "Jessica Gaston"
+      },
+      {
+        "quote": "Measuring programming progress by lines of code is like measuring aircraft building progress by weight.",
+        "quote_zh_tw": "按程式行數來評估軟體開發的進度，就如同按重量來評估飛機建造的進度。",
+        "author": "Bill Gates"
+      },
+      {
+        "quote": "Walking on water and developing software from a specification are easy if both are frozen.",
+        "quote_zh_tw": "在水上行走和按照特定需求開發開發軟體都很容易——前提是它們都是凍結狀態。",
+        "author": "Edward V Berard"
+      },
+      {
+        "quote": "The hardest part of design … is keeping features out.",
+        "quote_zh_tw": "軟體設計最困難的部分⋯⋯是阻擋新功能的引入。",
+        "author": "Donald Norman"
+      },
+      {
+        "quote": "Java is to JavaScript what Car is to Carpet.",
+        "quote_zh_tw": "Java 之於 JavaScript 的關係就如同狗和熱狗。",
+        "author": "Chris Heilmann"
+      },
+      {
+        "quote": "Programs must be written for people to read, and only incidentally for machines to execute.",
+        "quote_zh_tw": "程式必須是為了給人看而寫，命令機器執行只是附帶任務。",
+        "author": "Abelson / Sussman"
+      },
+      {
+        "quote": "Copy and paste is a design error.",
+        "quote_zh_tw": "複製貼上是一種設計錯誤。",
+        "author": "David Parnas"
+      },
+      {
+        "quote": "Computers are good at following instructions, but not at reading your mind.",
+        "quote_zh_tw": "電腦善於遵循指令，但不善於理解你的思維。",
+        "author": "Donald Knuth"
+      },
+      {
+        "quote": "Software and cathedrals are much the same – first we build them, then we pray.",
+        "quote_zh_tw": "軟體和教堂非常相似——建成之後我們就開始祈禱。",
+        "author": "Sam Redwine"
+      },
+      {
+        "quote": "If you give someone a program, you will frustrate them for a day; if you teach them how to program, you will frustrate them for a lifetime.",
+        "quote_zh_tw": "如果你交給某人一個程式，你將折磨他一整天；如果你教某人如何編寫程式，你將折磨他一輩子。",
+        "author": "David Leinweber"
+      },
+      {
+        "quote": "Nine people can’t make a baby in a month.",
+        "quote_zh_tw": "九個人不能讓一個孩子在一個月內出生。",
+        "author": "Fred Brooks"
+      }
+    ]
+  }
