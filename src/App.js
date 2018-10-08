@@ -7,6 +7,17 @@ import { fab, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 library.add(fab, faTwitter)
 
+var colors = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
+              '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+              '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A', 
+              '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
+              '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC', 
+              '#66664D', '#991AFF', '#E666FF', '#4DB3FF', '#1AB399',
+              '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680', 
+              '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
+              '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3', 
+              '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF']
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,18 +28,28 @@ class App extends Component {
       quotesData: [],
       quote: '',
       quoteChinese: '',
-      author: ''
+      author: '',
+      color: '#ffe4c4'
     }
+  }
+
+  getRandomArrayItem = (arr) => {
+    return arr[Math.floor(Math.random() * arr.length)]
   }
 
   getRandomQuote = () => {
     let quotes = this.state.quotesData.quotes
-    return quotes[Math.floor(Math.random() * quotes.length)]
+    return this.getRandomArrayItem(quotes)
+  }
+
+  getRandomColor = () => {
+    return this.getRandomArrayItem(colors)
   }
 
   handleClick = (e) => {    
     this.setState(state => ({
       showQuote: false,
+      color: this.getRandomColor()
     }))
   }
 
@@ -43,7 +64,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("/quotes.json")
+    let nowUrl = window.location.href
+    fetch(nowUrl + "/quotes.json")
       .then(res => res.json())
       .then(
         (result) => {
@@ -69,6 +91,10 @@ class App extends Component {
       const { error, isLoaded, showQuote,
               quote, quoteChinese, author} = this.state
 
+      const stylesObj = {
+        background: this.state.color
+      };
+
       if (error) {
         return <div id="error">Error: {error.message}</div>
       } else if (!isLoaded) {
@@ -77,11 +103,11 @@ class App extends Component {
         let tweetShareURL = "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=" +
                         encodeURIComponent(quote + author)
         return (
-          <div id="quote-box" className="App">
-
+          <div className="container" style={stylesObj}>
+            <div  id="quote-box">
               <CSSTransition
                 in={showQuote}
-                timeout={300}
+                timeout={500}
                 classNames="quote"
                 onExited={() => {
                   this.changeQuote()
@@ -99,7 +125,7 @@ class App extends Component {
               <a id="tweet-quote" href={tweetShareURL}>
                 <FontAwesomeIcon icon={['fab', 'twitter']} />
               </a>
-
+              </div>
           </div>
         )
       }
