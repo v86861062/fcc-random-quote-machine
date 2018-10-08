@@ -23,9 +23,9 @@
   font-size: 24px;
   margin-right: 10px;
   margin-left: 10px;
-}
-#text, #text-chinese, #author {
-  font-family: "微軟正黑體", "Microsoft JhengHei", "Segoe UI Semibold", "Segoe UI", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  font-family: "微軟正黑體", "Microsoft JhengHei", "Segoe UI Semibold", 
+  "Segoe UI", "Lucida Grande", Verdana, Arial, 
+  Helvetica, sans-serif;
 }
 #author {
   font-size: 20px;
@@ -44,7 +44,6 @@
   color: dodgerblue;
   font-size: 30px;
 }
-
 
 
 .quote-enter {
@@ -72,6 +71,27 @@
   color: red;
   text-align: center;
 }
+
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #text, #text-chinese, #author{ 
+    font-size: 16px;
+  }
+  #author {
+    font-size: 10px;    
+  }
+  #new-quote {  
+    font-size: 10px;
+  }
+  #tweet-quote {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+}
+
+
+
 
 /* loading effect */
 .lds-ring {
