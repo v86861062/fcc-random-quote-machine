@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import { CSSTransition } from 'react-transition-group';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fab, faTwitter } from '@fortawesome/free-brands-svg-icons'
@@ -14,10 +13,11 @@ class App extends Component {
     this.state = {
       error: null,
       isLoaded: false,
+      showQuote: false,
       quotesData: [],
-      currentQuote: '',
-      currentQuoteChinese: '',
-      currentAuthor: ''
+      quote: '',
+      quoteChinese: '',
+      author: ''
     }
   }
 
@@ -26,12 +26,19 @@ class App extends Component {
     return quotes[Math.floor(Math.random() * quotes.length)]
   }
 
-  handleClick = (e) => {
+  handleClick = (e) => {    
+    this.setState(state => ({
+      showQuote: false,
+    }))
+  }
+
+  changeQuote = (e) => {
     let randomQuote = this.getRandomQuote()
     this.setState(state => ({
-      currentQuote: randomQuote.quote,
-      currentQuoteChinese: randomQuote.quote_zh_tw,
-      currentAuthor: randomQuote.author
+      quote: randomQuote.quote,
+      quoteChinese: randomQuote.quote_zh_tw,
+      author: randomQuote.author,
+      showQuote: true
     }))
   }
 
@@ -44,7 +51,7 @@ class App extends Component {
             isLoaded: true,
             quotesData: result
           });
-          this.handleClick()
+          this.changeQuote()
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -52,14 +59,15 @@ class App extends Component {
         (error) => {
           this.setState({
             isLoaded: true,
-            error
+            error 
           });
         }
       )
   }
 
   render() {
-      const { error, isLoaded, currentQuote, currentQuoteChinese, currentAuthor} = this.state
+      const { error, isLoaded, showQuote,
+              quote, quoteChinese, author} = this.state
 
       if (error) {
         return <div id="error">Error: {error.message}</div>
@@ -67,18 +75,31 @@ class App extends Component {
         return <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
       } else {
         let tweetShareURL = "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=" +
-                        encodeURIComponent(currentQuote + currentAuthor)
+                        encodeURIComponent(quote + author)
         return (
-          <div className="App">
-            <div id="quote-box">
-              <div id="text">{currentQuote}</div>
-              <div id="text-chinese">{currentQuoteChinese}</div>
-              <div id="author">-{currentAuthor}</div>
+          <div id="quote-box" className="App">
+
+              <CSSTransition
+                in={showQuote}
+                timeout={300}
+                classNames="quote"
+                onExited={() => {
+                  this.changeQuote()
+                }}> 
+                  {state => (
+                    <div>
+                      <div id="text">{quote}</div>
+                      <div id="text-chinese">{quoteChinese}</div>
+                      <div id="author">-{author}</div>
+                    </div>
+                  )}
+                </CSSTransition>
+
               <button id="new-quote" onClick={this.handleClick}>new quote</button>
               <a id="tweet-quote" href={tweetShareURL}>
                 <FontAwesomeIcon icon={['fab', 'twitter']} />
-              </a>            
-            </div>
+              </a>
+
           </div>
         )
       }
